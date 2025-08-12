@@ -1,10 +1,19 @@
 {
   "name": "tribal-wars-calc",
   "private": true,
+  "scripts": {
+    "start": "bun src/index.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@date-fns/tz": "^1.3.1",
+    "@types/yargs": "^17.0.33",
+    "date-fns": "^4.1.0",
+    "yargs": "^18.0.0"
   }
 }
