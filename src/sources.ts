@@ -13,6 +13,14 @@ export const sources: SourcesFileSchema<typeof targets> = [
           ARIETE: 1,
         },
       },
+      {
+        targetId: "queluz",
+        x: 549,
+        y: 401,
+        army: {
+          NOBRE: 1,
+        },
+      },
     ],
   },
   {
@@ -22,7 +30,9 @@ export const sources: SourcesFileSchema<typeof targets> = [
         targetId: "queluz",
         x: 548,
         y: 403,
-        army: {},
+        army: {
+          ARIETE: 1,
+        },
       },
     ],
   },
@@ -33,7 +43,9 @@ export const sources: SourcesFileSchema<typeof targets> = [
         targetId: "queluz",
         x: 547,
         y: 412,
-        army: {},
+        army: {
+          ARIETE: 1,
+        },
       },
     ],
   },
@@ -44,7 +56,7 @@ export const sources: SourcesFileSchema<typeof targets> = [
         targetId: "queluz",
         x: 546,
         y: 415,
-        army: {},
+        army: { ARIETE: 1 },
       },
     ],
   },

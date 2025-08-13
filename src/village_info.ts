@@ -1,13 +1,17 @@
 import { subMinutes } from "date-fns/subMinutes";
 import { Units } from "./constants";
-import type { Army, SourcesVillageInfoFileSchema } from "./types";
+import type {
+  Army,
+  SourcesVillageInfoFileSchema,
+  TypeTargetsKey,
+} from "./types";
 import { targets } from "./targets";
 
 export class VillageInfo {
   public name: string;
   private x: number;
   private y: number;
-  private targetId: keyof typeof targets;
+  private targetId: TypeTargetsKey;
   private army: Partial<Army>;
 
   constructor(id: string, info: SourcesVillageInfoFileSchema<typeof targets>) {

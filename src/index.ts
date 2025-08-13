@@ -1,20 +1,32 @@
 import { sources } from "./sources";
 import { targets } from "./targets";
+import type { TypeTargetsKey } from "./types";
 import { Logger } from "./utils/logger";
 import { getAttackTime } from "./utils/utils";
 import { VillageInfo } from "./village_info";
 
-const log = new Logger();
-const allSources: Map<keyof typeof targets, VillageInfo[]> = new Map();
+const log = new Logger("compact");
+
+const allSources: Map<TypeTargetsKey, Map<string, VillageInfo[]>> = new Map();
 
 for (const source of sources) {
   for (const attackInfo of source.attacks) {
     const villageInfo = new VillageInfo(source.id, attackInfo);
     if (allSources.has(attackInfo.targetId)) {
-      allSources.get(attackInfo.targetId)!.push(villageInfo);
+      if (allSources.get(attackInfo.targetId)?.has(villageInfo.name)) {
+        allSources
+          .get(attackInfo.targetId)
+          ?.get(villageInfo.name)
+          ?.push(villageInfo);
+      } else {
+        allSources
+          .get(attackInfo.targetId)
+          ?.set(villageInfo.name, [villageInfo]);
+      }
       continue;
     }
-    allSources.set(attackInfo.targetId, [villageInfo]);
+    allSources.set(attackInfo.targetId, new Map<string, VillageInfo[]>());
+    allSources.get(attackInfo.targetId)?.set(villageInfo.name, [villageInfo]);
   }
 }
 
@@ -24,18 +36,28 @@ const attackTime = getAttackTime({
 });
 
 for (const [targetId] of Object.entries(targets)) {
-  log.addLog(`Attack ${targetId}`);
+  const logId = log.beginLog(targetId);
+  log.buildTargetLog(logId, targetId as TypeTargetsKey, attackTime);
 
-  for (const villageInfo of allSources.get(targetId as any)!) {
-    const departureTime = villageInfo.calculateDepartureTime(attackTime);
-    const duration = villageInfo.calculateTimeToTarget();
-
-    log.buildAttackLog({
-      attackTime,
-      departureTime,
-      duration,
-      villageInfo,
+  for (const playersInfo of allSources
+    .get(targetId as TypeTargetsKey)!
+    .values()) {
+    let currentIndex = 1;
+    log.startAttackLog(logId, {
+      villageInfo: playersInfo[0]!,
     });
+    for (const villageInfo of playersInfo.values()) {
+      const departureTime = villageInfo.calculateDepartureTime(attackTime);
+      const duration = villageInfo.calculateTimeToTarget();
+
+      log.buildAttackLog(logId, {
+        attackTime,
+        departureTime,
+        duration,
+        villageInfo,
+        index: currentIndex++,
+      });
+    }
   }
 }
 

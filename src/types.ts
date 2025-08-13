@@ -1,4 +1,7 @@
 import type { Units } from "./constants";
+import type { targets } from "./targets";
+
+export type TypeTargetsKey = keyof typeof targets;
 
 export type Army = Record<keyof typeof Units, number>;
 

@@ -1,5 +1,6 @@
 import { TZDate } from "@date-fns/tz/date";
 import type { GetAttackTimeArguments } from "./types";
+import { format } from "date-fns/format";
 
 export function formatDuration(nrMinutes: number) {
   const hours = Math.floor(nrMinutes / 60);
@@ -7,6 +8,10 @@ export function formatDuration(nrMinutes: number) {
   const seconds = (60 * nrMinutes) % 1;
 
   return `${hours}:${minutes}:${seconds}`;
+}
+
+export function formatDate(date: Date) {
+  return format(date, "H:mm");
 }
 
 export function getAttackTime(args: GetAttackTimeArguments): TZDate {

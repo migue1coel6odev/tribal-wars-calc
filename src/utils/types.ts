@@ -6,9 +6,16 @@ export type GetAttackTimeArguments = {
   minutes: number;
 };
 
+export type StartAttackLogArguments = {
+  villageInfo: VillageInfo;
+};
+
 export type BuildAttackLogArguments = {
   departureTime: Date;
   duration: number;
   attackTime: TZDate;
   villageInfo: VillageInfo;
+  index?: number;
 };
+
+export type LogLevel = "normal" | "compact";
