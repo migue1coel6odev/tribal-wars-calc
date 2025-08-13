@@ -21,6 +21,14 @@ export const sources: SourcesFileSchema<typeof targets> = [
           NOBRE: 1,
         },
       },
+      {
+        targetId: "queluz",
+        x: 549,
+        y: 401,
+        army: {
+          VIKING: 1,
+        },
+      },
     ],
   },
   {
@@ -28,8 +36,8 @@ export const sources: SourcesFileSchema<typeof targets> = [
     attacks: [
       {
         targetId: "queluz",
-        x: 548,
-        y: 403,
+        x: 550,
+        y: 411,
         army: {
           ARIETE: 1,
         },
@@ -57,6 +65,12 @@ export const sources: SourcesFileSchema<typeof targets> = [
         x: 546,
         y: 415,
         army: { ARIETE: 1 },
+      },
+      {
+        targetId: "queluz",
+        x: 546,
+        y: 415,
+        army: { NOBRE: 1 },
       },
     ],
   },
