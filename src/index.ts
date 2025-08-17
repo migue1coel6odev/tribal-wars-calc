@@ -31,7 +31,7 @@ for (const source of sources) {
 }
 
 const attackTime = getAttackTime({
-  hours: 14,
+  hours: 20,
   minutes: 0,
 });
 

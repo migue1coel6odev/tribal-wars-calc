@@ -1,9 +1,24 @@
 import type { TargetsFileSchema } from "./types";
 
 export const targets = {
-  queluz: {
-    name: "Queluz",
-    x: 551,
+  cfelix001: {
+    name: "CFelix5506",
+    x: 553,
+    y: 405,
+  },
+  cfelix002: {
+    name: "CFelix3196",
+    x: 558,
+    y: 407,
+  },
+  cfelix003: {
+    name: "CFelix2805",
+    x: 557,
+    y: 408,
+  },
+  cfelix004: {
+    name: "CFelix1936",
+    x: 556,
     y: 409,
   },
 } satisfies TargetsFileSchema;
