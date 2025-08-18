@@ -6,31 +6,7 @@ export const sources: SourcesFileSchema<typeof targets> = [
     id: "Puzzle",
     attacks: [
       {
-        targetId: "cfelix001",
-        x: 549,
-        y: 401,
-        army: {
-          BATEDOR: 1,
-        },
-      },
-      {
-        targetId: "cfelix002",
-        x: 549,
-        y: 401,
-        army: {
-          BATEDOR: 1,
-        },
-      },
-      {
-        targetId: "cfelix003",
-        x: 549,
-        y: 401,
-        army: {
-          BATEDOR: 1,
-        },
-      },
-      {
-        targetId: "cfelix004",
+        targetId: "virato01",
         x: 549,
         y: 401,
         army: {
@@ -39,47 +15,41 @@ export const sources: SourcesFileSchema<typeof targets> = [
       },
     ],
   },
-  // {
-  //   id: "Raptec",
-  //   attacks: [
-  //     {
-  //       targetId: "queluz",
-  //       x: 550,
-  //       y: 411,
-  //       army: {
-  //         ARIETE: 1,
-  //       },
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: "dannkumilla",
-  //   attacks: [
-  //     {
-  //       targetId: "queluz",
-  //       x: 547,
-  //       y: 412,
-  //       army: {
-  //         ARIETE: 1,
-  //       },
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: "Quintela",
-  //   attacks: [
-  //     {
-  //       targetId: "queluz",
-  //       x: 546,
-  //       y: 415,
-  //       army: { ARIETE: 1 },
-  //     },
-  //     {
-  //       targetId: "queluz",
-  //       x: 546,
-  //       y: 415,
-  //       army: { NOBRE: 1 },
-  //     },
-  //   ],
-  // },
+  {
+    id: "Raptec",
+    attacks: [
+      {
+        targetId: "virato02",
+        x: 550,
+        y: 411,
+        army: {
+          BATEDOR: 1,
+        },
+      },
+    ],
+  },
+  {
+    id: "dannkumilla",
+    attacks: [
+      {
+        targetId: "virato01",
+        x: 547,
+        y: 412,
+        army: {
+          BATEDOR: 1,
+        },
+      },
+    ],
+  },
+  {
+    id: "Quintela",
+    attacks: [
+      {
+        targetId: "virato02",
+        x: 546,
+        y: 415,
+        army: { BATEDOR: 1 },
+      },
+    ],
+  },
 ];

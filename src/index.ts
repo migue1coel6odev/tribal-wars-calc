@@ -31,11 +31,14 @@ for (const source of sources) {
 }
 
 const attackTime = getAttackTime({
-  hours: 20,
-  minutes: 0,
+  hours: 23,
+  minutes: 55,
 });
 
 for (const [targetId] of Object.entries(targets)) {
+  if (!allSources.has(targetId as TypeTargetsKey)) {
+     continue;
+  }
   const logId = log.beginLog(targetId);
   log.buildTargetLog(logId, targetId as TypeTargetsKey, attackTime);
 

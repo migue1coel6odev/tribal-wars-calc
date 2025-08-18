@@ -21,4 +21,14 @@ export const targets = {
     x: 556,
     y: 409,
   },
+  virato01: {
+    name: "ViratoFraca",
+    x: 545,
+    y: 414
+  },
+  virato02: {
+    name: "ViratoPrincipal",
+    x: 544,
+    y: 417
+  }
 } satisfies TargetsFileSchema;
