@@ -75,9 +75,9 @@ export class Logger {
     }
 
     this.logs[logId] += `
-\t${index}. send at ${formatDate(
-      departureTime
-    )}h with ${villageInfo.getArmy()}`;
+\t${index}. send at ${formatDate(departureTime)}h (takes ${formatDuration(
+      duration
+    )}) with ${villageInfo.getArmy()}`;
   }
 
   async writeToFile(logId?: keyof typeof this.logs) {
