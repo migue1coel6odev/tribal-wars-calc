@@ -1,4 +1,4 @@
-import type { TargetsFileSchema } from "./types";
+import type { TargetsFileSchema } from "../types";
 
 export const targets = {
   cfelix001: {
@@ -30,5 +30,15 @@ export const targets = {
     name: "ViratoPrincipal",
     x: 544,
     y: 417
+  },
+  carolynaFraca: {
+    name: "CarolinaFraca",
+    x: 553,
+    y: 414
+  },
+  carolynaForte: {
+    name: "CarolinaForte",
+    x: 552,
+    y: 415
   }
 } satisfies TargetsFileSchema;

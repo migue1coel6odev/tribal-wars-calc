@@ -5,8 +5,10 @@ import type {
 } from "./types";
 import { formatDate, formatDuration } from "./utils";
 import path from "node:path";
-import { targets } from "../targets";
+import { targets } from "../info/targets";
 import type { TypeTargetsKey } from "../types";
+import { playersVillagesInfo } from "../info/villages_info";
+import { players } from "../info/players";
 
 export class Logger {
   private logs: Record<string, string> = {};
@@ -34,25 +36,27 @@ export class Logger {
     targetId: TypeTargetsKey,
     arrivalTime: Date
   ) {
-    this.logs[logId] += `---- Attack [${targets[targetId].name} (${
-      targets[targetId].x
-    }|${targets[targetId].y})] ${formatDate(arrivalTime)} ----`;
+    const { name, x, y } = targets[targetId];
+    this.logs[logId] += `---- Attack [${name} (${x
+      }|${y})] ${formatDate(arrivalTime)} ----`;
   }
 
   startAttackLog(logId: keyof typeof this.logs, args: StartAttackLogArguments) {
-    const { villageInfo } = args;
+    const { villageId } = args;
+
+    const { name, x, y, owner } = playersVillagesInfo[villageId];
+    const { name: ownerName } = players[owner];
 
     if (this.logLevel === "normal") {
       this.logs[logId] += `
-        Village: ${
-          villageInfo.name
-        } (${villageInfo.getX()}|${villageInfo.getY()})`;
+        Village: ${name
+        } (${x}|${y})`;
       return;
     }
 
     this.logs[logId] += `
 
-[${villageInfo.name} (${villageInfo.getX()}|${villageInfo.getY()})]:`;
+[${ownerName} from: ${name} (${x}|${y})]:`;
   }
 
   buildAttackLog(logId: keyof typeof this.logs, args: BuildAttackLogArguments) {

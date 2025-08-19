@@ -1,5 +1,6 @@
 import type { TZDate } from "@date-fns/tz";
 import type { VillageInfo } from "../village_info";
+import type { TypePlayersVillageInfoKey } from "../types";
 
 export type GetAttackTimeArguments = {
   hours: number;
@@ -7,7 +8,7 @@ export type GetAttackTimeArguments = {
 };
 
 export type StartAttackLogArguments = {
-  villageInfo: VillageInfo;
+  villageId: TypePlayersVillageInfoKey;
 };
 
 export type BuildAttackLogArguments = {

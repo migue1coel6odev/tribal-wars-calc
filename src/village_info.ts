@@ -5,7 +5,7 @@ import type {
   SourcesVillageInfoFileSchema,
   TypeTargetsKey,
 } from "./types";
-import { targets } from "./targets";
+import { targets } from "./info/targets";
 
 export class VillageInfo {
   public name: string;
